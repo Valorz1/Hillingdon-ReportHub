@@ -1,0 +1,8 @@
+{
+  "appId": "uk.gov.hillingdon.reports",
+  "appName": "Hillingdon ReportHub",
+  "webDir": "dist",
+  "android": {
+    "backgroundColor": "#ece5dd"
+  }
+}

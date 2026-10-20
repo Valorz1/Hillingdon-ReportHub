@@ -1,0 +1,43 @@
+# secrets — never commit
+.env
+
+# qwe state — machine-local
+.qwe/
+scripts/qwe
+scripts/
+qwe.env
+
+# Frontend build output
+frontend/dist/
+frontend/.vite/
+frontend/node_modules/
+frontend/android/.gradle/
+frontend/android/local.properties
+
+# Backend runtime data (SQLite db)
+backend/data/
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+backend/.venv/
+.venv/
+venv/
+
+# Java build output
+target/
+build/
+*.class
+*.jar
+*.war
+
+# IDE
+.idea/
+.vscode/
+*.iml
+
+*.log
+
+# Python tests
+.pytest_cache/

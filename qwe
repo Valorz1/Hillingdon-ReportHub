@@ -1,0 +1,19 @@
+#!/usr/bin/env bash
+# Project-local qwe wrapper for ReportSystem-Frontend.
+# Always use THIS instead of the global `qwe` command:
+#
+#   ./qwe app           # build + install APK on connected device
+#   ./qwe app build     # build APK only (no device needed)
+#   ./qwe deploy --prod # deploy to NAS
+#
+# The global qwe binary auto-discovers qwe.env by walking up from the
+# current directory, so running `./qwe` from the project root is all
+# that's needed — no QWE_CONFIG juggling required.
+#
+# To use the same pattern in another project:
+#   cp qwe <new-project>/
+#   create <new-project>/qwe.env with project-specific values
+
+set -euo pipefail
+
+exec qwe "$@"

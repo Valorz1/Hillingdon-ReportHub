@@ -1,0 +1,17 @@
+**/node_modules
+**/dist
+**/.vite
+**/__pycache__
+**/.pytest_cache
+frontend/android
+backend/data
+backend/tests
+.env
+.env.*
+.git
+.qwe
+scripts
+tools
+*.log
+qwe.env*
+README.md

@@ -609,7 +609,7 @@ This project began as a collaborative effort by four team members:
 | Team Member | GitHub |
 |---|---|
 | G51DHU | [@G51DHU](https://github.com/G51DHU) |
-| Sanat | Sanat |
+| Sanat | [@sanwagh](https://github.com/sanwagh)|
 | juliamuriasole-gif | [@juliamuriasole-gif](https://github.com/juliamuriasole-gif) |
 | Valorz1 | [@Valorz1](https://github.com/Valorz1) |
 

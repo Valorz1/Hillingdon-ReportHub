@@ -1,177 +1,659 @@
-# Hillingdon ReportHub
+ 
+<div align="center">
 
-**Report a pothole or a fly-tip in about 20 seconds.** Residents send a photo,
-voice note or a quick message through a chat-style app. The system works out
-which council team should handle it, and staff get a triage inbox with the
-photo, a map, duplicate detection and an audit trail.
+# 🏙️ Hillingdon ReportHub
 
-> Built at the **Hillingdon × Brunel Hackathon 2026** (April 2026) by a team of
-> four, and presented to judges from Hillingdon Council, Microsoft, Brunel
-> University London and ICS.AI. **Recognised by Microsoft.**
+### Making local reporting simpler, smarter and more accessible.
 
-<p>
-  <img src="docs/screenshots/chat.png" width="230" alt="Resident chat: the bot suggests Streets & Waste and asks for a location">
-  <img src="docs/screenshots/resident-home.png" width="230" alt="Resident home with report history and status">
-  <img src="docs/screenshots/confirmed.png" width="230" alt="Confirmation screen with reference number">
-</p>
-<img src="docs/screenshots/dashboard.png" alt="Staff triage dashboard with map, auto-classification and duplicate detection">
+**Report a pothole, fly-tipping or another neighbourhood issue in seconds.**
+
+A conversational civic-tech application that helps residents report local problems while automatically suggesting the right council department to handle them.
+
+Built for **Hillingdon Council's Core Challenge 04: Smart Triage and Routing** at the **Hillingdon × Brunel University Hackathon 2026**.
+
+![Hackathon](https://img.shields.io/badge/Hackathon-2026-blueviolet?style=for-the-badge)
+![Microsoft Recognition](https://img.shields.io/badge/Microsoft-Recognised-0078D4?style=for-the-badge&logo=microsoft&logoColor=white)
+![Team](https://img.shields.io/badge/Team-Infinitev2-2563EB?style=for-the-badge)
+
+![Preact](https://img.shields.io/badge/Preact-673AB8?style=for-the-badge&logo=preact&logoColor=white)
+![FastAPI](https://img.shields.io/badge/FastAPI-009688?style=for-the-badge&logo=fastapi&logoColor=white)
+![Python](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white)
+![PostgreSQL](https://img.shields.io/badge/PostgreSQL-4169E1?style=for-the-badge&logo=postgresql&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-2496ED?style=for-the-badge&logo=docker&logoColor=white)
+
+**🏆 Recognised by Microsoft for innovative design and creativity**
+
+</div>
 
 ---
 
-## The problem
+## 📸 Project Preview
 
-Council reporting forms ask residents to pick the right department from a long
-list before they can describe anything. People guess wrong, give up, or phone
-in. Reports then land in the wrong queue and get passed between teams.
+### Resident reporting experience
 
-## What we built
+A familiar chat-style interface where residents can describe problems naturally without navigating complicated council forms.
 
-**For residents**, the app is a chat they already know how to use:
+<p align="center">
+  <img src="docs/screenshots/chat.png" width="30%" alt="Resident reporting an issue using conversational chat">
+  &nbsp;
+  <img src="docs/screenshots/resident-home.png" width="30%" alt="Resident home showing report tracking">
+  &nbsp;
+  <img src="docs/screenshots/confirmed.png" width="30%" alt="Successful report submission confirmation">
+</p>
 
-- **Photo, voice or text.** Voice notes are transcribed (Deepgram) and shown back for confirmation before sending.
-- **Instant routing.** As soon as there's enough detail, the bot shows which team the report will go to and how confident it is. The resident can confirm it or say "not quite".
-- **Guided, not interrogated.** The bot asks only for what the street teams need: where it is (one-tap GPS, reverse-geocoded to an address) and a photo.
-- **Reference number and tracking.** Each report gets a reference like `HIL-20-10-K7P2M`, and residents can follow it from *New* through *In progress* to *Resolved*.
+### Council staff dashboard
 
-**For council staff**, there's a triage inbox:
+A dedicated interface for council employees to review, classify, prioritise and manage incoming reports.
 
-- **Auto-classification** into 8 departments, with confidence and the keywords it matched. Low-confidence reports go to a *Needs review* queue so a person makes the call.
-- **Duplicate detection.** Open reports about the same thing within 150 m of each other are grouped ("+1 nearby"), so five fly-tipping reports become one job.
-- **Urgency flags.** Reports mentioning a risk to people (a fallen tree on the pavement, cyclists swerving, safeguarding) float to the top.
-- **Photo and map for every report**, plus one-click status changes, reassignment and a full audit log.
-- **Live stats**, with search and filtering by department or status.
+<p align="center">
+  <img src="docs/screenshots/dashboard.png" width="100%" alt="Staff dashboard displaying reports, location information and classifications">
+</p>
 
-## Architecture
+---
 
+## 🏆 The Hackathon Story
+
+### My First Hackathon — Hillingdon × Brunel University Hackathon 2026
+
+On **29 April 2026**, I participated in my first-ever hackathon, organised through a collaboration between Hillingdon Council and Brunel University of London.
+
+It was one of the most exciting and challenging experiences I'd had as a Computer Science student.
+
+We had a single day to understand a real-world problem, develop an idea, turn it into a functional prototype and present our solution to a panel of judges.
+
+The fast-paced, competitive environment pushed me to think creatively, solve problems under pressure and step outside my comfort zone.
+
+More importantly, it showed me how much a team can accomplish when everyone brings different skills and ideas to the table.
+
+### 🎯 Our Challenge: Smart Triage and Routing
+
+**Hillingdon Council — Core Challenge 04**
+
+The challenge focused on improving how residents report local issues and how those reports are directed to the correct council teams.
+
+Residents might report potholes, fly-tipping, damaged street infrastructure or housing concerns, but they don't always know which department should handle their issue.
+
+Incorrect categorisation can create additional work for council staff and delay a report reaching the right team.
+
+Our task was to develop a solution that could make this process easier for both residents and council employees.
+
+### 💡 Our Solution
+
+Working together as **Team Infinitev2**, we developed a reporting system designed to:
+
+- Allow residents to describe issues using natural language.
+- Automatically identify the most relevant council department.
+- Reduce manual categorisation and incorrect routing.
+- Make the reporting process simpler and more accessible.
+- Support council staff with a clearer overview of incoming reports.
+
+Instead of requiring residents to understand the council's internal departments, we wanted the application to do the initial routing work for them.
+
+### 🛠️ Original Hackathon Technologies
+
+The original one-day prototype involved:
+
+| Technology | Role |
+|---|---|
+| Java | Application development |
+| Preact | Lightweight user interface |
+| Llama 3 | AI experimentation and report interpretation |
+| Figma | UI/UX design and prototyping |
+| APIs | Connecting application functionality |
+
+The project has since been developed further using a Python/FastAPI backend and a deterministic classification engine. The original hackathon stack and the current application architecture are documented separately.
+
+### 🏅 Microsoft Recognition
+
+<blockquote>
+
+**Team Infinitev2 received recognition from Microsoft for innovative design and creativity.**
+
+</blockquote>
+
+We also had the opportunity to present our solution to judges representing Hillingdon Council, Microsoft, Brunel University of London and ICS.AI.
+
+For my first hackathon, receiving that recognition was a memorable achievement.
+
+### What I Learned
+
+This event taught me more than just how to build an application under time pressure.
+
+It strengthened my ability to:
+
+- Collaborate with developers and designers.
+- Communicate ideas clearly during a technical project.
+- Make practical decisions when time and resources are limited.
+- Turn a real problem into a working software prototype.
+- Present a technical solution to an external audience.
+
+The experience also motivated me to continue developing the project after the event rather than leaving it as a one-day prototype.
+
+A huge thank you to [London Borough of Hillingdon](https://www.linkedin.com/company/london-borough-of-hillingdon/), [Brunel University of London](https://www.linkedin.com/school/bruneluniversityoflondon/), [Microsoft](https://www.linkedin.com/company/microsoft/) and [ICS AI Ltd](https://www.linkedin.com/company/ics-ai-ltd/) for making the experience possible.
+
+---
+
+## 🌍 The Problem We're Solving
+
+Reporting a local problem shouldn't require understanding how an entire council operates.
+
+Traditional reporting forms can expect residents to select the correct service or department before describing an issue.
+
+That creates several challenges:
+
+- **Complex reporting:** Residents navigate forms and unfamiliar service categories.
+- **Incorrect routing:** Reports can be assigned to unsuitable departments.
+- **Repeated submissions:** Multiple people may report the same problem.
+- **Limited visibility:** Residents may not know what happened after submitting a report.
+- **Manual processing:** Council staff may need to review and reassign incoming requests.
+
+These barriers can be particularly frustrating for people with limited digital confidence.
+
+### Our Approach
+
+**What if reporting a council issue felt as natural as sending a message?**
+
+ReportHub replaces complicated form navigation with a guided conversation.
+
+Residents explain the problem, provide a location and attach supporting information. The application handles initial classification and routing, while uncertain cases remain subject to human review.
+
+---
+
+## ✨ Key Features
+
+### 👤 Resident Experience
+
+**Conversational Reporting**
+
+A chat-style interface where residents describe problems using everyday language.
+
+**Photo, Voice and Text Support**
+
+Residents can submit descriptions, photographs or recorded voice messages. Optional Deepgram transcription converts voice into reviewable text.
+
+**Automatic Department Suggestions**
+
+The classification engine suggests which council team should receive the report and provides confidence information.
+
+**GPS Location Capture**
+
+Device GPS and reverse geocoding help residents identify and confirm the location of an issue.
+
+**Report References**
+
+Every submitted report receives a unique reference number, such as:
+
+`HIL-20-10-K7P2M`
+
+**Status Tracking**
+
+Residents can follow the progress of their reports:
+
+`New → In Progress → Resolved`
+
+### 🏛️ Council Staff Experience
+
+**Centralised Dashboard**
+
+View and manage reports in a searchable, filterable workspace.
+
+**Eight-Department Classification**
+
+Automatically categorise submissions using weighted keywords and confidence scoring.
+
+**Human Review**
+
+Uncertain reports are directed to General Enquiries rather than being assigned without sufficient evidence.
+
+**Duplicate Detection**
+
+Potential duplicate reports about nearby issues are identified within a 150-metre radius.
+
+**Urgency Detection**
+
+Descriptions containing possible public safety concerns can be flagged for prioritisation.
+
+**Interactive Maps and Photos**
+
+Staff can view report locations and supporting photographs.
+
+**Report Management**
+
+Update report statuses, reassign departments and review audit history.
+
+**Operational Statistics**
+
+View report totals, department breakdowns and status information using stored report data.
+
+---
+
+## 🧠 How the Classification Engine Works
+
+The current version of ReportHub uses an explainable **rules-based classification engine**.
+
+Unlike a general-purpose language model, the engine follows a deterministic set of weighted keywords.
+
+Each department has associated keywords with weights ranging from 1 to 3.
+
+### Classification Process
+
+```text
+Resident submits report
+         |
+         v
+Analyse description
+         |
+         v
+Match weighted keywords
+         |
+         v
+Calculate department scores
+         |
+         v
+Select highest-scoring department
+         |
+         v
+Calculate confidence
+         |
+         +---- Confidence < 0.4
+         |           |
+         |           v
+         |      Human review
+         |
+         +---- Confidence >= 0.4
+                     |
+                     v
+              Suggest department
 ```
- Resident / staff (web or Android app via Capacitor)
-          │
-          ▼
- nginx :9443 ── serves the Preact SPA (static, cached, gzipped)
-          │
-          └── /api/* ──► FastAPI (uvicorn) ──► PostgreSQL
-                              │
-                              ├─ rules classifier (keyword weights + confidence margin)
-                              ├─ Deepgram (voice → text, optional)
-                              └─ llm.py stubs (hook for an LLM fallback / image analysis)
+
+### Confidence Formula
+
+```text
+confidence = (top_score + (top_score - second_score)) / 10
 ```
 
-| Layer    | Tech |
-|----------|------|
-| Frontend | Preact, Vite, wouter, vanilla CSS with design tokens |
-| Mobile   | Capacitor (Android) with native camera |
-| Backend  | Python, FastAPI, SQLAlchemy, Pydantic, JWT auth (bcrypt) |
-| Data     | PostgreSQL in production, SQLite locally |
-| Infra    | Docker (one container: nginx and uvicorn), docker compose |
-| Design   | Figma |
+The margin between the two highest-scoring departments affects the recommendation's confidence.
 
-**How classification works:** each department has keywords weighted 1–3, and
-they match whole words only, so "parent" doesn't count as "rent". The
-highest-scoring department wins. Confidence is `(top score + margin over
-second place) / 10`, so a close call between two teams scores lower even when
-both match strongly. Anything under 0.4 goes to General Enquiries for a human
-to route. The same algorithm runs in the browser (for the live suggestion in
-the chat) and on the server (as the source of truth).
+The engine also uses whole-word matching to reduce false positives.
 
-## Running it
+For example:
 
-### 1. Demo mode: no backend needed
+- `parent` should not match `rent`.
+- `cabinet` should not match `bin`.
+- `care home` should not match `car`.
 
-```sh
+### Why Rules Instead of Only Using an LLM?
+
+For a council reporting system, explainability matters.
+
+A rules-based approach offers:
+
+- Predictable classification.
+- Low computational overhead.
+- No requirement to send every report to an external AI service.
+- Visibility into the keywords that influenced a decision.
+- Straightforward automated testing.
+
+The frontend uses a matching implementation to provide immediate suggestions, while the backend makes the authoritative routing decision.
+
+LLM-assisted fallback and image analysis remain potential future enhancements.
+
+---
+
+## 🏗️ System Architecture
+
+The current application uses a separate frontend, backend and persistence layer.
+
+```mermaid
+flowchart TD
+    A["Residents / Staff"] --> B["Preact Web App"]
+    A --> C["Capacitor Android App"]
+    C --> B
+    B --> D["nginx :9443"]
+    D -->|"API requests"| E["FastAPI / Uvicorn"]
+    E --> F[("PostgreSQL / SQLite")]
+    E --> G["Classification Engine"]
+    E --> H["Duplicate + Urgency Detection"]
+    E -.->|"Optional transcription"| I["Deepgram"]
+    E -.->|"Future integration"| J["LLM / Image Analysis"]
+    B --> K["Browser Classifier"]
+```
+
+### Current Technology Stack
+
+| Layer | Technologies |
+|---|---|
+| Frontend | Preact, Vite, wouter |
+| Styling | Vanilla CSS, design tokens |
+| Backend | Python, FastAPI, SQLAlchemy |
+| Data Validation | Pydantic |
+| Authentication | JWT, bcrypt |
+| Database | PostgreSQL (production), SQLite (local) |
+| Mobile | Capacitor for Android |
+| Voice | Deepgram API |
+| Infrastructure | Docker, nginx, Uvicorn |
+| UI/UX Design | Figma |
+
+---
+
+## 🚀 Getting Started
+
+There are three ways to run the application.
+
+### 1. Frontend Demo — No Backend Required
+
+**Requirements:** Node.js and npm.
+
+From the repository root:
+
+```bash
 cd frontend
 npm install
-npm run dev            # http://localhost:5173
+npm run dev
 ```
 
-Reports are stored in the browser and classified client-side, with 28 seeded
-demo reports. Sign in with one of the demo accounts on the login screen.
-Voice notes need the full stack.
+Open `http://localhost:5173`.
 
-### 2. Full stack, locally
+Demo mode includes 28 seeded reports, client-side classification and browser-based local storage.
 
-```sh
-# backend: http://localhost:8000, API docs at /api/docs
+Voice transcription requires the complete backend.
+
+### 2. Full-Stack Development
+
+#### Backend Setup
+
+```bash
 cd backend
-python -m venv .venv && . .venv/bin/activate      # Windows: .venv\Scripts\activate
+python -m venv .venv
+```
+
+Activate the virtual environment.
+
+**Windows PowerShell:**
+
+```powershell
+.\.venv\Scripts\Activate.ps1
+```
+
+**macOS / Linux:**
+
+```bash
+source .venv/bin/activate
+```
+
+Install dependencies:
+
+```bash
 pip install -r requirements.txt
-SEED_DEMO_REPORTS=1 python seed.py               # PowerShell: $env:SEED_DEMO_REPORTS=1; python seed.py
+```
+
+To seed demonstration reports:
+
+**Windows PowerShell:**
+
+```powershell
+$env:SEED_DEMO_REPORTS = "1"
+python seed.py
+```
+
+**macOS / Linux:**
+
+```bash
+SEED_DEMO_REPORTS=1 python seed.py
+```
+
+Start the API:
+
+```bash
 uvicorn app.main:app --reload --port 8000
+```
 
-# frontend: proxies /api to :8000
+Backend: `http://localhost:8000`
+
+API documentation: `http://localhost:8000/api/docs`
+
+#### Frontend Setup
+
+In a second terminal:
+
+```bash
 cd frontend
-VITE_USE_BACKEND=true npm run dev                 # PowerShell: $env:VITE_USE_BACKEND="true"; npm run dev
+npm install
 ```
 
-### 3. Docker (production-like)
+**Windows PowerShell:**
 
-```sh
+```powershell
+$env:VITE_USE_BACKEND = "true"
+npm run dev
+```
+
+**macOS / Linux:**
+
+```bash
+VITE_USE_BACKEND=true npm run dev
+```
+
+Open `http://localhost:5173`.
+
+### 3. Docker Deployment
+
+With Docker and Docker Compose installed, configure a secure `SECRET_KEY` and start the application.
+
+Example for macOS / Linux:
+
+```bash
 SECRET_KEY=$(openssl rand -hex 32) docker compose up --build
-# → http://localhost:9443
 ```
 
-| Variable | Purpose |
-|----------|---------|
-| `SECRET_KEY` | JWT signing key. **Required in production.** |
-| `DEEPGRAM_KEY` | Enables voice-note transcription |
-| `SEED_DEMO_REPORTS` | `1` loads the demo reports into an empty database (on by default in compose) |
-| `CORS_ORIGINS` | Comma-separated allowed origins (default `*`) |
+Application: `http://localhost:9443`
 
-### Tests
+### Environment Variables
 
-```sh
+| Variable | Description |
+|---|---|
+| `SECRET_KEY` | JWT signing key; required in production |
+| `DEEPGRAM_KEY` | Optional voice transcription |
+| `SEED_DEMO_REPORTS` | Loads sample reports into an empty database |
+| `CORS_ORIGINS` | Permitted cross-origin request origins |
+
+Use appropriately restricted settings and strong secrets for any deployment beyond local development.
+
+---
+
+## 🧪 Testing
+
+Backend tests can be run with:
+
+```bash
 cd backend
 pip install pytest
 python -m pytest tests
 ```
 
-These cover the classifier (whole-word matching, plurals, routing the brief's
-examples), auth, input validation, residents only seeing their own reports, and
-the full status/reassign flow.
+The test suite covers:
 
-### Demo accounts
+- Classification and whole-word matching.
+- Department routing examples.
+- Authentication and authorisation.
+- Input validation.
+- Resident report-access restrictions.
+- Report statuses and reassignment.
 
-| Role     | Email                     | Password   |
-|----------|---------------------------|------------|
-| Resident | `fakeemail@gmail.com`     | `password` |
-| Staff    | `admin@hillingdon.gov.uk` | `admin`    |
+---
 
-## Project layout
+## 🔐 Demo Accounts
 
+These credentials are for local demonstration only.
+
+| Role | Email | Password |
+|---|---|---|
+| Resident | `fakeemail@gmail.com` | `password` |
+| Council Staff | `admin@hillingdon.gov.uk` | `admin` |
+
+Do not enable these seeded accounts on a public production deployment.
+
+---
+
+## 📁 Project Structure
+
+```text
+Hillingdon-ReportHub/
+│
+├── backend/
+│   ├── app/
+│   │   ├── classifier.py
+│   │   ├── deps.py
+│   │   ├── routers/
+│   │   └── ...
+│   ├── seed.py
+│   ├── tests/
+│   └── requirements.txt
+│
+├── frontend/
+│   ├── src/
+│   │   ├── api.js
+│   │   ├── pages/
+│   │   ├── components/
+│   │   ├── data/
+│   │   └── lib/
+│   ├── android/
+│   └── package.json
+│
+├── docs/
+│   └── screenshots/
+│
+├── nginx/
+│   └── default.conf
+│
+├── docker-compose.yml
+└── README.md
 ```
-backend/
-  app/
-    classifier.py     rules engine (mirrors frontend/src/data/rules.js)
-    deps.py           auth dependencies (current_user, require_admin)
-    routers/          auth, reports, transcribe, chat
-  seed.py             users + optional demo reports
-  tests/
-frontend/
-  src/
-    api.js            one API surface, real backend or localStorage mock
-    pages/            LoginScreen, ResidentForm (chat), StaffDashboard
-    components/       Header, Icon
-    lib/              classifier, duplicate/urgency helpers, formatting, image resize
-  android/            Capacitor project
-nginx/default.conf
-```
 
-## Post-hackathon improvements
+---
 
-After the event I went back over the codebase to polish it and fix what we'd
-rushed:
+## 🔧 Post-Hackathon Engineering Improvements
 
-- **Design pass.** Rebuilt the stylesheet on design tokens, replaced emoji icons with an SVG set, added visible focus states, reduced-motion support, a phone-width layout on desktop, and a responsive staff dashboard.
-- **Real data on the dashboard.** Stats, duplicate detection and urgency were mock-ups or random values in the demo. They're now computed from actual reports, and staff can change a report's status.
-- **Photos and GPS are saved with each report**, with photos downscaled and EXIF-stripped on the device first. Previously they only appeared in the chat.
-- **Classifier accuracy.** Matching now uses whole words, so "cabinet" no longer counts as a "bin" and "care home" no longer counts as a "car".
-- **Backend performance.** Removed an N+1 query (one database query per report on every 5-second refresh), left photos out of list responses, added gzip, and paused polling when the tab is hidden.
-- **Hardening.** Input validation, residents can't file reports under someone else's email, collision-resistant reference numbers, a correct CORS setup, an nginx upload limit that fits voice notes, and expired sessions handled cleanly.
-- **Tests** for the API and classifier.
+The hackathon required us to build a functional prototype in a single day.
 
-## Team
+After the event, I continued working on the project independently to improve its design, reliability and maintainability.
 
-**Team InfinityV2**, Hillingdon × Brunel Hackathon 2026.
+### 🎨 Design and Accessibility
 
-Built by G51DHU, Sanat, juliamuriasole-gif and Valorz1.
+- Introduced reusable CSS design tokens.
+- Replaced emoji icons with a consistent SVG icon set.
+- Improved mobile and desktop layouts.
+- Added visible keyboard focus states.
+- Introduced reduced-motion support.
+- Refined the staff dashboard.
 
-Shoutout to G51DHU, Sanat, juliamuriasole-gif real credit. :3
+### 🧠 Classification Accuracy
+
+- Improved keyword matching using whole-word boundaries.
+- Reduced accidental keyword matches.
+- Refined confidence scoring and routing behaviour.
+
+### 📊 Functional Dashboard
+
+- Replaced demonstration statistics with report-based calculations.
+- Implemented duplicate and urgency detection using report data.
+- Enabled staff to change statuses and reassign reports.
+
+### ⚡ Performance Improvements
+
+- Removed an N+1 database query during report refreshes.
+- Reduced response sizes by excluding photographs from list endpoints.
+- Enabled gzip compression.
+- Paused polling when browser tabs are hidden.
+
+### 🔒 Security and Data Handling
+
+- Strengthened input validation.
+- Restricted residents to accessing their own reports.
+- Improved report reference generation.
+- Corrected CORS configuration.
+- Improved handling of expired authentication sessions.
+- Added client-side image resizing and EXIF removal.
+- Adjusted upload limits for voice messages.
+
+### ✅ Automated Testing
+
+Added tests covering core API behaviour, authentication, validation and classification.
+
+**These improvements were an opportunity to apply what I'd learned and take the original hackathon idea further.**
+
+---
+
+## 🛣️ Future Roadmap
+
+ReportHub is an evolving prototype, and there are several improvements worth exploring.
+
+- [ ] Experiment with LLM-assisted classification for ambiguous reports.
+- [ ] Explore image analysis for identifying common council issues.
+- [ ] Improve duplicate detection using location and semantic similarity.
+- [ ] Conduct accessibility and usability testing with residents.
+- [ ] Investigate integration with council case-management systems.
+- [ ] Expand security testing and deployment monitoring.
+- [ ] Evaluate classification accuracy using a representative labelled dataset.
+
+The goal is to develop a prototype that could eventually be evaluated for practical civic-service use.
+
+---
+
+## 👥 Meet Team Infinitev2
+
+### Hillingdon × Brunel University Hackathon 2026
+
+This project began as a collaborative effort by four team members:
+
+| Team Member | GitHub |
+|---|---|
+| G51DHU | [@G51DHU](https://github.com/G51DHU) |
+| Sanat | Sanat |
+| juliamuriasole-gif | [@juliamuriasole-gif](https://github.com/juliamuriasole-gif) |
+| Valorz1 | [@Valorz1](https://github.com/Valorz1) |
+
+We worked together under the pressure of a one-day hackathon to develop and present a working solution to Hillingdon Council's Core Challenge 04.
+
+**Microsoft recognised our team for innovative design and creativity.**
+
+Special thanks to **G51DHU, Sanat and juliamuriasole-gif**. Everyone contributed to making the original hackathon project possible.
+
+The application has continued to evolve after the event, with additional work focused on improving the codebase and user experience.
+
+---
+
+## 🙏 Acknowledgements
+
+Thank you to the organisations involved in making the Hillingdon × Brunel University Hackathon 2026 possible:
+
+- [London Borough of Hillingdon](https://www.linkedin.com/company/london-borough-of-hillingdon/)
+- [Brunel University of London](https://www.linkedin.com/school/bruneluniversityoflondon/)
+- [Microsoft](https://www.linkedin.com/company/microsoft/)
+- [ICS AI Ltd](https://www.linkedin.com/company/ics-ai-ltd/)
+
+The experience challenged my mindset, encouraged me to experiment with new technologies and gave me the confidence to tackle bigger software engineering problems.
+
+---
+
+## ❤️ Why This Project Matters
+
+ReportHub is more than a hackathon project to me.
+
+It began with an idea that public services should be easier to access, regardless of someone's technical confidence.
+
+Many residents simply want to report a problem and know that it has reached the right place. They shouldn't have to understand how council departments are organised.
+
+This project showed me how software, thoughtful interface design and responsible automation can work together to address a practical community problem.
+
+It also marked an important milestone in my own development as a Computer Science student: my first hackathon, my first experience presenting this kind of solution to industry judges, and a project I wanted to keep improving afterwards.
+
+<div align="center">
+
+### Built in one day. Improved beyond the hackathon.
+
+**Hillingdon ReportHub · Team Infinitev2 · 2026**
+
+*Making public services easier to access, one report at a time.*
+
+</div>
